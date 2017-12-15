@@ -15,10 +15,53 @@ class SingleCityWeather
     @single_city_weather
   end
 
-  def get_single_weather
-    @single_city_weather['weather'][0]
+  def get_coordinates
+    get_city_results['coord']
   end
 
+  def get_single_weather
+    get_city_results['weather'][0]
+  end
+
+  def get_base
+    get_city_results['base']
+  end
+
+  def get_main
+    get_city_results['main']
+  end
+
+  def get_visibility
+    get_city_results['visibility']
+  end
+
+  def get_wind
+    get_city_results['wind']
+  end
+
+  def get_clouds
+    get_city_results['clouds']
+  end
+
+  def get_dt
+    get_city_results['dt']
+  end
+
+  def get_sys
+    get_city_results['sys']
+  end
+
+  def get_id
+    get_city_results['id']
+  end
+
+  def get_name
+    get_city_results['name']
+  end
+
+  def get_code
+    get_city_results['cod']
+  end
 end
 
 
