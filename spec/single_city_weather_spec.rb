@@ -17,6 +17,14 @@ describe Weather do
       expect(@weather.get_coordinates).to be_kind_of(Hash)
     end
 
+    it "Longitude Coordinates should be between -180 and 180 degrees" do
+      expect(@weather.get_coord_lon).to be_between(-180,180)
+    end
+
+    it "Latitude Coordinates should be between -90 and 90 degrees" do
+      expect(@weather.get_coord_lat).to be_between(-90,90)
+    end
+
     it "Weather should respond as a hash of results" do
       expect(@weather.get_single_weather).to be_kind_of(Hash)
     end

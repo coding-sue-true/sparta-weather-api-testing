@@ -19,6 +19,14 @@ class SingleCityWeather
     get_city_results['coord']
   end
 
+  def get_coord_lon
+    get_coordinates['lon']
+  end
+
+  def get_coord_lat
+    get_coordinates['lat']
+  end
+
   def get_single_weather
     get_city_results['weather'][0]
   end
