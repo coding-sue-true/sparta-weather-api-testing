@@ -31,12 +31,48 @@ class SingleCityWeather
     get_city_results['weather'][0]
   end
 
+  def get_single_weather_id
+    get_single_weather['id']
+  end
+
+  def get_single_weather_main
+    get_single_weather['main']
+  end
+
+  def get_single_weather_description
+    get_single_weather['description']
+  end
+
+  def get_single_weather_icon
+    get_single_weather['icon']
+  end
+
   def get_base
     get_city_results['base']
   end
 
   def get_main
     get_city_results['main']
+  end
+
+  def get_main_temp
+    get_main['temp']
+  end
+
+  def get_main_pressure
+    get_main['pressure']
+  end
+
+  def get_main_humidity
+    get_main['humidity']
+  end
+
+  def get_main_temp_min
+    get_main['temp_min']
+  end
+
+  def get_main_temp_max
+    get_main['temp_max']
   end
 
   def get_visibility
@@ -47,8 +83,20 @@ class SingleCityWeather
     get_city_results['wind']
   end
 
+  def get_wind_speed
+    get_wind['speed']
+  end
+
+  def get_wind_deg
+    get_wind['deg']
+  end
+
   def get_clouds
     get_city_results['clouds']
+  end
+
+  def get_clouds_all
+    get_clouds['all']
   end
 
   def get_dt
@@ -57,6 +105,30 @@ class SingleCityWeather
 
   def get_sys
     get_city_results['sys']
+  end
+
+  def get_sys_type
+    get_sys['type']
+  end
+
+  def get_sys_id
+    get_sys['id']
+  end
+
+  def get_sys_message
+    get_sys['message']
+  end
+
+  def get_sys_country
+    get_sys['country']
+  end
+
+  def get_sys_sunrise
+    get_sys['sunrise']
+  end
+
+  def get_sys_sunset
+      get_sys['sunset']
   end
 
   def get_id
@@ -75,4 +147,4 @@ end
 
 x = SingleCityWeather.new
 
-puts x.get_single_city_weather('Bristol').class
+puts x.get_single_city_weather('Richmond')
