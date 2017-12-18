@@ -3,17 +3,17 @@ require 'json'
 require 'faker'
 # require_relative '../services/city_id.yml'
 
-class SingleCityWeather
+class SingleCityWeatherById
   include HTTParty
 
   base_uri 'https://api.openweathermap.org/data/2.5'
 
-  def get_single_city_weather_by_name(city)
-    @single_city_weather = JSON.parse(self.class.get("/weather?q=#{city},uk&appid=a40f462c465768e7ad04d60cac8f970e").body)
+  def get_single_city_weather_by_coord(lat,lon)
+    @single_city_weather_coord = JSON.parse(self.class.get("/weather?lat=#{lat}&lon=#{lon}&appid=a40f462c465768e7ad04d60cac8f970e").body)
   end
 
   def get_city_results
-    @single_city_weather
+    @single_city_weather_coord
   end
 
   def get_coordinates
@@ -144,8 +144,3 @@ class SingleCityWeather
     get_city_results['cod']
   end
 end
-
-
-x = SingleCityWeather.new
-
-puts x.get_single_city_weather_by_name('London')
