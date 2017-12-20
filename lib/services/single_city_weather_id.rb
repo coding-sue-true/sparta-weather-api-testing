@@ -1,23 +1,28 @@
 require 'httparty'
 require 'json'
 require 'faker'
-# require_relative '../services/city_id.yml'
+require_relative '../random_data/random_city_id.rb'
 
-class SingleCityWeather
+class SingleCityWeatherById
   include HTTParty
 
   base_uri 'https://api.openweathermap.org/data/2.5'
 
-  def get_single_city_weather_by_name(city)
-    @single_city_weather = JSON.parse(self.class.get("/weather?q=#{city},uk&appid=a40f462c465768e7ad04d60cac8f970e").body)
+  def get_single_city_weather_by_id
+    @single_city_weather_id = JSON.parse(self.class.get("/weather?id=#{get_random_city}&appid=a40f462c465768e7ad04d60cac8f970e").body)
   end
 
-  def get_city_results
-    @single_city_weather
+  def get_random_city
+    x = CityById.new
+    x.random_city
   end
+
+  # def get_city_results
+  #   @single_city_weather_id
+  # end
 
   def get_coordinates
-    get_city_results['coord']
+    get_random_city['coord']
   end
 
   def get_coord_lon
@@ -145,7 +150,5 @@ class SingleCityWeather
   end
 end
 
-
-x = SingleCityWeather.new
-
-puts x.get_single_city_weather_by_name('London')
+x = SingleCityWeatherById.new
+puts x.get_single_city_weather_by_id
